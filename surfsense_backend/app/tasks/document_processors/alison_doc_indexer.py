@@ -43,7 +43,7 @@ async def index_alison_docs():
                 await session.refresh(alison_search_space)
 
             # 3. Index the documents
-            alison_docs_dir = "app/alison_docs"
+            alison_docs_dir = "surfsense_backend/app/alison_docs"
             for filename in os.listdir(alison_docs_dir):
                 if filename.endswith(".md"):
                     filepath = os.path.join(alison_docs_dir, filename)

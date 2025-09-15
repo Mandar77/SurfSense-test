@@ -24,8 +24,8 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 from sqlalchemy.orm import DeclarativeBase, Mapped, declared_attr, relationship
 
 from app.config import config
-from app.retriever.chunks_hybrid_search import ChucksHybridSearchRetriever
-from app.retriever.documents_hybrid_search import DocumentHybridSearchRetriever
+from app.retriver.chunks_hybrid_search import ChucksHybridSearchRetriever
+from app.retriver.documents_hybrid_search import DocumentHybridSearchRetriever
 
 if config.AUTH_TYPE == "GOOGLE":
     from fastapi_users.db import SQLAlchemyBaseOAuthAccountTableUUID
@@ -141,10 +141,7 @@ class Chat(BaseModel, TimestampMixin):
 
     type = Column(SQLAlchemyEnum(ChatType), nullable=False)
     title = Column(String, nullable=False, index=True)
-    if DATABASE_URL.startswith("postgresql"):
-        initial_connectors = Column(ARRAY(String), nullable=True)
-    else:
-        initial_connectors = Column(JSON, nullable=True)
+    initial_connectors = Column(ARRAY(String), nullable=True)
     messages = Column(JSON, nullable=False)
 
     search_space_id = Column(
@@ -401,11 +398,9 @@ async def setup_indexes():
 
 async def create_db_and_tables():
     async with engine.begin() as conn:
-        if conn.dialect.name == "postgresql":
-            await conn.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
+        await conn.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
         await conn.run_sync(Base.metadata.create_all)
-    if engine.dialect.name == "postgresql":
-        await setup_indexes()
+    await setup_indexes()
 
 
 async def get_async_session() -> AsyncGenerator[AsyncSession, None]:

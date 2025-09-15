@@ -1,38 +1,22 @@
 [
-  {
-    "issue": "Projector not displaying",
-    "causes": ["HDMI cable not connected", "Input source not selected"],
-    "resolution": [
-      "Check HDMI cable connection to laptop and projector",
-      "On projector remote, press 'Source' and select HDMI",
-      "Restart projector if display does not appear"
-    ]
-  },
-  {
-    "issue": "Microphone not working",
-    "causes": ["Mic muted", "Wrong input device selected"],
-    "resolution": [
-      "Ensure mic is unmuted (hardware switch or Zoom/Teams mute button)",
-      "Check audio settings to confirm correct microphone is selected",
-      "If still not working, try reconnecting mic via USB"
-    ]
-  },
-  {
-    "issue": "Zoom/Teams not starting",
-    "causes": ["Network connection issue", "App not updated"],
-    "resolution": [
-      "Check Wi-Fi connection",
-      "Restart Zoom/Teams",
-      "Update application to the latest version"
-    ]
-  },
-  {
-    "issue": "Wi-Fi not connecting",
-    "causes": ["Incorrect password", "Network down"],
-    "resolution": [
-      "Re-enter NU-Secure password",
-      "Forget and reconnect to NU-Secure",
-      "Contact IT support if Wi-Fi is still unavailable"
-    ]
-  }
+    {
+        "question": "The projector is not turning on.",
+        "answer": "Please make sure the projector is plugged into a power outlet and that the power cable is securely connected. Also, check if the power switch on the projector is in the 'ON' position. If it still doesn't turn on, try a different power outlet."
+    },
+    {
+        "question": "The projector is on, but there is no image.",
+        "answer": "Check the video cable (HDMI or VGA) and ensure it is securely connected to both the projector and your computer. Also, make sure your computer is set to output to an external display. You can usually do this by pressing the 'Windows' key + 'P' on a Windows computer or by checking the 'Displays' settings on a Mac."
+    },
+    {
+        "question": "The image from the projector is blurry.",
+        "answer": "The projector's focus may need to be adjusted. Look for a focus ring around the lens of the projector and turn it until the image is sharp. If that doesn't work, the lens may be dirty. Try cleaning it with a soft, lint-free cloth."
+    },
+    {
+        "question": "The colors on the projector screen look weird.",
+        "answer": "This could be due to a loose or damaged video cable. Please check the cable connections. If the problem persists, you may need to try a different cable. You can also check the projector's menu for color settings and try resetting them to the default."
+    },
+    {
+        "question": "I can't hear any audio from the projector's speakers.",
+        "answer": "First, make sure the volume on both your computer and the projector is turned up. If you are using an HDMI cable, the audio should be transmitted automatically. If you are using a VGA cable, you will need a separate audio cable. Make sure the audio cable is connected to the correct ports on both your computer and the projector."
+    }
 ]
